@@ -10,8 +10,9 @@ spec:
     - ReadWriteMany
   mountOptions:
     - allow-delete
+    - region {{ ocp4_workload_create_rwx_volume_region }}
   csi:
     driver: s3.csi.aws.com
-    volumeHandle: s3-csi-volume-marker
+    volumeHandle: s3-csi-{{ guid }}-handle
     volumeAttributes:
       bucketName: {{ ocp4_workload_create_rwx_volume_s3_bucket_name }}
